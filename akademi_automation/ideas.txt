@@ -1,0 +1,4 @@
+- Check the weekday
+- Check the time
+- According to the time navigate to the corresponding class
+- Go to class and check if zoom class is opened
