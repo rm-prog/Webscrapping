@@ -63,9 +63,14 @@ def open_zoom(first_link, second_link, third_link):
     enter_first = False
     enter_second = False
     enter_third = False
+
+    hour_of_day = datetime.datetime.today().hour
     # Check the time 
-    while datetime.datetime.now().hour >= 9 and datetime.datetime.now().hour < 13:
-        if datetime.datetime.now().hour == 10 and enter_first != True:
+    while hour_of_day >= 9 and hour_of_day < 13:
+
+        hour_of_day = datetime.datetime.today().hour
+
+        if hour_of_day == 10 and enter_first != True:
             # Go to the first online class of the day
             driver.get(first_link)
             while True:   
@@ -87,7 +92,7 @@ def open_zoom(first_link, second_link, third_link):
                     driver.refresh()
                     continue
         # Same as above
-        elif datetime.datetime.now().hour == 11 and enter_second != True:
+        elif hour_of_day == 11 and enter_second != True:
             driver.get(second_link)
             while True:    
                 try:
@@ -103,7 +108,7 @@ def open_zoom(first_link, second_link, third_link):
                     driver.refresh()
                     continue
         # Same
-        elif datetime.datetime.now().hour == 12 and enter_third != True:
+        elif hour_of_day == 12 and enter_third != True:
             driver.get(third_link)
             while True:   
                 try:
@@ -120,3 +125,5 @@ def open_zoom(first_link, second_link, third_link):
                     continue
         # if lessons havent started yet then wait for 2 minutes
         time.sleep(120)
+
+    driver.quit()

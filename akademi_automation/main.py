@@ -21,30 +21,34 @@ fiskulture_link = "https://app.akademi.al/course/_student/0f831d9f-d3c0-4475-8c2
 
 
 day_of_week = datetime.datetime.today().weekday()
+hour_of_day = datetime.datetime.today().hour
 
 # <---------------------- Check day of the week and the hour ------------------------>
 # <---------------------- Pass the class links corresponding to the day of the week
 def start_lesson():
+
+    hour_of_day = datetime.datetime.today().hour
+
     if day_of_week == 0:
-        if datetime.datetime.now().hour >= 9 and datetime.datetime.now().hour < 13:
+        if hour_of_day >= 9 and hour_of_day < 13:
             open_zoom(anglisht_link, gjeo1_link, histori_link)            
     if day_of_week == 1:
-        if datetime.datetime.now().hour >= 9 and datetime.datetime.now().hour < 13:
+        if hour_of_day >= 9 and hour_of_day < 13:
             open_zoom(mat_link, kimi_link, filozofi_link)            
     if day_of_week == 2:
-        if datetime.datetime.now().hour >= 9 and datetime.datetime.now().hour < 13:
+        if hour_of_day >= 9 and hour_of_day < 13:
             open_zoom(letersi_link, fizik_link, biologji_link)            
     if day_of_week == 3:
-        if datetime.datetime.now().hour >= 9 and datetime.datetime.now().hour < 13:
+        if hour_of_day >= 9 and hour_of_day < 13:
             open_zoom(mat_link, fiskulture_link, fizik_link)            
     if day_of_week == 4:
-        if datetime.datetime.now().hour >= 9 and datetime.datetime.now().hour < 13:
+        if hour_of_day >= 9 and hour_of_day < 13:
             cift_tek = int(input("Tik apo anglisht (1, 2)"))
             if cift_tek == 1: open_zoom(gjuhe_link, tik_link, frengjisht_link)   
             else: open_zoom(gjuhe_link, anglisht_link, frengjisht_link)         
 
 
 if __name__ == "__main__":
-    while datetime.datetime.now().hour >= 9 and datetime.datetime.now().hour < 13: 
+    while hour_of_day >= 9 and hour_of_day < 13: 
         start_lesson()
         time.sleep(60)
